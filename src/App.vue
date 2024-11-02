@@ -87,8 +87,8 @@ import Chatbox from './components/Chatbox.vue'
                 error: 'No data available',
                 message1: '...',
                 message2: '',
-                color1: '',
-                color2: '',
+                color1: '#430A5D',
+                color2: '#40A2E3',
                 //history: {}, // Un objeto que guardará los mensajes de ambas personas dentro de un historial, que será mostrado en el Chatbox 
                 history: ref([]), // Cambiamos history a un array reactivo
               }
@@ -165,7 +165,7 @@ import Chatbox from './components/Chatbox.vue'
     align-items: center;
     margin: 20px;
     border: 1px solid white;
-    height: 100%;
+    height: auto;
     border-radius: 10px;
     padding: 1rem;
     margin: 0;
@@ -209,7 +209,6 @@ import Chatbox from './components/Chatbox.vue'
   .user-img {
     border-radius: 50%;
     border: 2px solid #242424;
-    /* outline: 6px solid white; */
   }
 
   .btn {

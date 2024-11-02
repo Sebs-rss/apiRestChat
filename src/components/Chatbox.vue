@@ -10,6 +10,7 @@
         <!-- Aquí va el historial, en forma de un ciclo de lista -->
         <ul class="history">
             <li v-for="(message, index) in history" :key="index">
+                <span :class="{'msg-info1': message.user1, 'msg-info2': !message.user1 }" >{{ message.username }} dijo:</span>
                 <span :class="{'msg1 msg-txt': message.user1, 'msg2 msg-txt': !message.user1 }">
                     {{ message.message }}
                 </span>
@@ -68,9 +69,17 @@ export default {
     background-color: #31363F;
 }
 
-.msg-info {
+.msg-info1 {
     display: block;
     text-align: left;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+    
+}
+
+.msg-info2 {
+    display: block;
+    text-align: right;
     font-style: italic;
     margin-bottom: 0.5rem;
     
@@ -109,7 +118,7 @@ export default {
 
 .msg-txt {
     display: block;
-    width:min-content;
+    max-width: 100%;
     text-wrap:pretty;
     word-wrap: break-word;
 }
@@ -131,5 +140,20 @@ hr {
     padding: 1rem;
     width: 100%;
 
+    max-height: 450px; /* Establece un alto máximo para la lista */
+    overflow-y: auto; /* Agrega un scroll vertical cuando la lista supera el alto máximo */
+    padding: 10px; /* Agrega un poco de padding para que el scroll sea más visible */
+
 }
+.history::-webkit-scrollbar {
+  width: 10px; /* Establece el ancho del scroll */
+  background-color: #9CAFAA; /* Establece el color de fondo del scroll */
+  
+}
+
+.history::-webkit-scrollbar-thumb {
+  background-color: #5356FF; /* Establece el color del scroll */
+  border-radius: 8px; /* Agrega un borde redondeado al scroll */
+}
+
 </style>
